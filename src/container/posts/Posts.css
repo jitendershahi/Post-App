@@ -1,0 +1,7 @@
+.container {
+    display: inline-flex;
+    /* flex-direction: row; */
+    /* flex-basis: 10px; */
+    width: 100%;
+    flex-wrap: wrap;
+}

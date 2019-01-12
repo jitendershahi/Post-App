@@ -1,0 +1,52 @@
+.card {
+    border: 1px solid black;
+    margin: 30px;
+    width: 25em;
+    height: 15em;
+    padding: 5px;
+    background: #f7f7f7;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card > h1 {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.card > p {
+    padding: 5px;
+    overflow: auto;
+}
+
+a:focus, a:hover {
+    color: #397ab7;
+    text-decoration: none;
+}
+
+div.card-icon > i.fa-trash {
+    position: absolute;
+    top: 40px;
+    left: 25em;
+    z-index: 9999999;
+    cursor: pointer;
+    color: #338dcd;
+}
+
+div.card-icon > i.fa-edit {
+    position: absolute;
+    top: 40px;
+    left: 23em;
+    z-index: 9999999;
+    cursor: pointer;
+    color: #338dcd;
+}
+
+.card-icon {
+    position: relative;
+}
