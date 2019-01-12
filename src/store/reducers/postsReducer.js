@@ -4,8 +4,6 @@ const initialState = {
     posts: []
 }
 
-
-
 export const postsReducer = (state = initialState.posts, action) => {
     switch (action.type) {
         case actionTypes.LOAD_POSTS:
@@ -18,6 +16,16 @@ export const postsReducer = (state = initialState.posts, action) => {
                 return [...state,action.data]
             } else {
                 return state
+            }
+
+        case actionTypes.EDIT_POST:
+            var editposts = [...state].filter(el => el !== action.data.id)
+            var arr = [...editposts,action.data]
+            let indexe = arr.findIndex(el => el.id === action.data.id);
+            if(indexe === -1){
+                return [...arr,action.data]
+            } else {
+                return arr
             }
 
         default:

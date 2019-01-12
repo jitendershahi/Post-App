@@ -11,7 +11,6 @@ import { Provider } from 'react-redux';
 import { postsReducer } from './store/reducers/postsReducer';
 import { commentReducer } from './store/reducers/commentReducer';
 import { reducer as formReducer } from 'redux-form';
-import { editReducer } from './store/reducers/editReducer';
 import { userReducer } from './store/reducers/userReducer';
 import { todosReducer } from './store/reducers/todoReducer';
 
@@ -21,7 +20,6 @@ const rootReducer = combineReducers({
     posts:postsReducer,
     comments:commentReducer,
     form:formReducer,
-    editPost:editReducer,
     users:userReducer,
     todos:todosReducer
 })
@@ -32,7 +30,7 @@ const store = createStore(rootReducer, composeEnhancers(
 
 const app = (
     <Provider store={store} >
-        <Router basename="/">
+        <Router>
             <App/>
         </Router>
     </Provider>

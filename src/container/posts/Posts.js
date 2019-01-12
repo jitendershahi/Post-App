@@ -32,7 +32,7 @@ class Posts extends Component {
     }
 
     editPost = (id) => {
-        this.props.history.push('/add-post/' + id)
+        this.props.history.push('/edit-post/' + id)
     }
 
     render() {

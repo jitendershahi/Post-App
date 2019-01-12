@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Postadd from '../../component/postadd/Postadd';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
@@ -52,7 +51,7 @@ class AddPost extends Component {
         return (
             <div style={{ padding: 15 }}>
                 <h2>{(this.state.isEdit) ? "Edit Post" : "Add Post"}</h2>
-                <Postadd {...this.state.post} onSubmit={this.submit}/>
+                {/* <Postadd {...this.state.post} onSubmit={this.submit}/> */}
             </div>
         );
     }
