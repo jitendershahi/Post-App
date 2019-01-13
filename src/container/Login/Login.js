@@ -1,33 +1,74 @@
 import React, { Component } from 'react';
+import './Login.css'
+import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
+
+import * as actionCreators from './../../store/actionscreators/actionCreators'
 
 class Login extends Component {
+
+    state = {
+        loginForm:{
+            email:'',
+            password:''
+        },
+        isSignup:false
+    }
+
+    handleValue = (event) => {
+        let body = {
+            ...this.state.loginForm,
+            [event.target.name]:event.target.value
+        }
+        this.setState({loginForm:body})
+    }
+
+    submitLogin = (event) => {
+        event.preventDefault()
+        let action = this.state.isSignup ? "SignUp" : "SignIn"
+        this.props.auth(this.state.loginForm,action)
+    }
+
+    changeMode = () => {
+        this.setState(prevState => {
+            return {
+                isSignup: !prevState.isSignup
+            }
+        })
+    }
     
     render() {
+        let redirect = null
+        if(this.props.isAuth){
+            redirect = <Redirect to="/posts" />
+        }
         let style = {
             margin:'110px auto',
             background:'#e6e6e6',
-            width:'50%'
+            width:'50%',
+            boxShadow:'rgb(202, 202, 202) 5px 10px'
         }
 
         return (
             <div className="container">
                 <div className="row" style={style}>
-                <h2>Post App Login</h2>
+                <h2>Post App {(this.state.isSignup) ? "SignUp" : "Login"} </h2>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <form>
-                        <div className="form-group">
-                            <label >Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                        </div>
-                        <div className="form-group">
-                            <label >Password</label>
-                            <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
-                        </div>
-                        <div className="form-check">
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                        </div>
-                        
-                        </form>
+                        {redirect}
+                            <form >
+                                <div className="form-group">
+                                    <label >Email address</label>
+                                    <input type="email" name="email" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.email} className="form-control" placeholder="Enter email" />
+                                </div>
+                                <div className="form-group">
+                                    <label >Password</label>
+                                    <input type="password" name="password" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.password} className="form-control" placeholder="Password" />
+                                </div>
+                                <div >
+                                    <button type="submit" onClick={(event) => this.submitLogin(event)} className="btn btn-primary">Submit</button>
+                                    <button type="button" onClick={this.changeMode} className="btn btn-danger">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
+                                </div>
+                            </form>
                         </div>
                 </div>
             </div>
@@ -35,4 +76,16 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        isAuth:state.auth.token !== null
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        auth: (data, type) => dispatch(actionCreators.loginSubmit(data, type))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

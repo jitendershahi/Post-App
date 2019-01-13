@@ -43,7 +43,6 @@ class AddPost extends Component {
              this.props.addPost(res.data)
              this.props.history.push('/')
          }).catch((err) => {
-             console.log(err)
          })
     }
 

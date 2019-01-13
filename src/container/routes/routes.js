@@ -7,17 +7,22 @@ import Userdetails from '../userdetails/Userdetails';
 import Todos from '../todos/Todos';
 import Login from '../Login/Login';
 import Postadd from '../../component/postadd/Postadd';
+import { Navbar } from '../../component/navbar/navbar';
+import Logout from '../logout/Logout';
+// import {connect} from 'react-redux';
 
 class Routes extends Component {
     render() {
         return (
             <div>
+                <Navbar  />
                 <Switch>
-                    <Route exact path="/" component={Posts} />
-                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/" component={Login} />
+                    <Route path="/posts" component={Posts} />
                     <Route path="/add-post" component={Postadd} />
                     <Route exact path="/users/:id" component={Userdetails} />
                     <Route path="/users" component={Users} />
+                    <Route path="/logout" component={Logout} />
                     <Route path="/to-dos" component={Todos} />
                     <Route path="/edit-post/:id" component={Postadd} />
                     <Route exact path="/post/:id" component={comments} />
@@ -28,4 +33,10 @@ class Routes extends Component {
     }
 }
 
-export default Routes;
+// const mapStateToProps = (state) => {
+//     return {
+//         isAuthenticated:state.auth.token !== null
+//     }
+// }
+
+export default Routes

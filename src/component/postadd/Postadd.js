@@ -4,6 +4,7 @@ import axios from 'axios';
 import { bindActionCreators } from '../../../node_modules/redux';
 import * as actionCreator from './../../store/actionscreators/actionCreators';
 import toastr from 'toastr'
+import { withRouter } from 'react-router-dom';
 
 
 class Postadd extends Component {
@@ -53,7 +54,7 @@ componentDidMount(){
       axios.post("http://jsonplaceholder.typicode.com/posts",this.state.postForm)
      .then((res) => {
        this.props.addPost(res.data)
-       this.props.history.push('/')
+       this.props.history.push('/posts')
        toastr.success("Post Added!!")
      }).catch(() => {
        toastr.error("Post Not Added!!")
@@ -62,7 +63,7 @@ componentDidMount(){
       axios.put("http://jsonplaceholder.typicode.com/posts/" + id ,this.state.postForm)
      .then((res) => {
        this.props.editPost(res.data)
-       this.props.history.push('/')
+       this.props.history.push('/posts')
        toastr.success("Post Edited!!")
      }).catch(() => {
        toastr.error("Post Not Edited!!")
@@ -118,4 +119,4 @@ const mapDispatchToProps = (dispatch) => {
   },dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (Postadd);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps) (Postadd));
