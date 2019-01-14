@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes'
 import axios from 'axios';
 
+import toastr from 'toastr'
 
 export const loadPosts = (data) => {
     return {
@@ -106,7 +107,7 @@ export const loginSubmit = (data, type) => {
                 dispatch(checkAuthTimeout(res.data.expiresIn))
 
             }).catch((err) => {
-                console.log(err)
+                toastr.error("User Already Exists " + err)
                 dispatch(authFail(err))
             })
     }

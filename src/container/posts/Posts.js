@@ -53,7 +53,8 @@ class Posts extends Component {
 
 const mapStateToProps = state => {
     return {
-        posts:state.posts
+        posts:state.posts,
+        isAuth:state.auth.token
     }
 }
 

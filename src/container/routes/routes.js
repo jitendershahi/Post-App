@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 import Posts from '../posts/Posts';
 import comments from '../comments/comments';
 import Users from '../users/Users';
@@ -12,12 +12,18 @@ import Logout from '../logout/Logout';
 // import {connect} from 'react-redux';
 
 class Routes extends Component {
+    
     render() {
-        return (
-            <div>
-                <Navbar  />
+        let token = localStorage.getItem('token')
+        let approutes = (
+            <Switch>
+                <Route exact path="/" component={Login} />
+                <Redirect to="/"/>
+            </Switch>
+        )
+        if(token) {
+            approutes = (
                 <Switch>
-                    <Route exact path="/" component={Login} />
                     <Route path="/posts" component={Posts} />
                     <Route path="/add-post" component={Postadd} />
                     <Route exact path="/users/:id" component={Userdetails} />
@@ -26,7 +32,16 @@ class Routes extends Component {
                     <Route path="/to-dos" component={Todos} />
                     <Route path="/edit-post/:id" component={Postadd} />
                     <Route exact path="/post/:id" component={comments} />
-                    <Route render={() => <h1>Page not Found?</h1>}/>
+                    <Redirect to="/posts"/>
+                </Switch>               
+            )
+        }
+        return (
+            <div>
+                <Navbar  />
+                <Switch>
+                    {approutes}
+                    {/* <Route render={() => <h1>Page not Found?</h1>}/> */}
                 </Switch>
             </div>
         );

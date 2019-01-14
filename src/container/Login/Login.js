@@ -38,10 +38,29 @@ class Login extends Component {
     }
     
     render() {
+        let token = localStorage.getItem('token')
         let redirect = null
-        if(this.props.isAuth){
+        if(token){
             redirect = <Redirect to="/posts" />
+        } else {
+            redirect = (
+                <form >
+                <div className="form-group">
+                    <label >Email address</label>
+                    <input type="email" name="email" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.email} className="form-control" placeholder="Enter email" />
+                </div>
+                <div className="form-group">
+                    <label >Password</label>
+                    <input type="password" name="password" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.password} className="form-control" placeholder="Password" />
+                </div>
+                <div >
+                    <button type="submit" onClick={(event) => this.submitLogin(event)} className="btn btn-primary">Submit</button>
+                    <button type="button" onClick={this.changeMode} className="btn btn-danger">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
+                </div>
+            </form>
+            )
         }
+        
         let style = {
             margin:'110px auto',
             background:'#e6e6e6',
@@ -55,20 +74,6 @@ class Login extends Component {
                 <h2>Post App {(this.state.isSignup) ? "SignUp" : "Login"} </h2>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         {redirect}
-                            <form >
-                                <div className="form-group">
-                                    <label >Email address</label>
-                                    <input type="email" name="email" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.email} className="form-control" placeholder="Enter email" />
-                                </div>
-                                <div className="form-group">
-                                    <label >Password</label>
-                                    <input type="password" name="password" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.password} className="form-control" placeholder="Password" />
-                                </div>
-                                <div >
-                                    <button type="submit" onClick={(event) => this.submitLogin(event)} className="btn btn-primary">Submit</button>
-                                    <button type="button" onClick={this.changeMode} className="btn btn-danger">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
-                                </div>
-                            </form>
                         </div>
                 </div>
             </div>
