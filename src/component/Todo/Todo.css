@@ -1,0 +1,13 @@
+button {
+    margin-bottom: 1px;
+}
+
+.btn-danger, .btn-primary {
+    margin-bottom: 1px !important;
+}
+
+.btn-primary  {
+    width: 41%;
+    margin-left: 21px;
+}
+

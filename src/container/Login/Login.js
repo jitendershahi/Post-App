@@ -53,19 +53,18 @@ class Login extends Component {
                     <label >Password</label>
                     <input type="password" name="password" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.password} className="form-control" placeholder="Password" />
                 </div>
-                <div >
+                <div className="custom-button">
                     <button type="submit" onClick={(event) => this.submitLogin(event)} className="btn btn-primary">Submit</button>
                     <button type="button" onClick={this.changeMode} className="btn btn-danger">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
                 </div>
             </form>
             )
         }
-        
+
         let style = {
             margin:'110px auto',
             background:'#e6e6e6',
-            width:'50%',
-            boxShadow:'rgb(202, 202, 202) 5px 10px'
+            width:'50%'
         }
 
         return (

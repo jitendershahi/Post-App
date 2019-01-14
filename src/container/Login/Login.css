@@ -5,3 +5,23 @@
 .btn-danger {
     margin-left: 20px;
 }
+/* 
+.row {
+    background: rgb(239, 230, 243);
+    width: 50%;
+    border-radius: 14px;
+}
+
+
+
+.container {
+    background: #dadada;
+}
+
+ */
+ div.custom-button {
+    height: 63px;
+}
+.row h2 {
+    text-align: center;
+}
