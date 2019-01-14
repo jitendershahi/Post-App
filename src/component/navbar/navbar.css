@@ -28,3 +28,20 @@ a:hover {
   color: white;
   text-decoration: underline;
 }
+
+.btns {
+  border-radius: 5px;
+  color: white;
+  background: #333333;
+}
+
+.head_section {
+  height: 50px;
+}
+
+.header {
+  position: fixed;
+  clear: both;
+  width: 100%;
+  z-index: 99999999;
+}

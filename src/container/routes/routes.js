@@ -7,12 +7,13 @@ import Userdetails from '../userdetails/Userdetails';
 import Todos from '../todos/Todos';
 import Login from '../Login/Login';
 import Postadd from '../../component/postadd/Postadd';
-import { Navbar } from '../../component/navbar/navbar';
+import Navbar  from '../../component/navbar/navbar';
 import Logout from '../logout/Logout';
 // import {connect} from 'react-redux';
 
 class Routes extends Component {
-    
+
+   
     render() {
         let token = localStorage.getItem('token')
         let approutes = (

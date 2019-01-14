@@ -17,3 +17,7 @@ a:hover {
   color: #397ab7 !important;
   text-decoration: underline;
 }
+
+.swal2-popup {
+  margin-bottom: 250px !important;
+}

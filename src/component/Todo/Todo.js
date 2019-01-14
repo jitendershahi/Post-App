@@ -5,7 +5,7 @@ const Todo = (props) => {
     let button = null
 
     if(props.completed) {
-        button = <button className="btn btn-primary">Completed</button>
+        button = <button className="btn complete btn-primary">Completed</button>
     } else {
         button = <button className="btn btn-danger">UnCompleted</button>
     }
