@@ -5,23 +5,34 @@
 .btn-danger {
     margin-left: 20px;
 }
-/* 
-.row {
-    background: rgb(239, 230, 243);
-    width: 50%;
-    border-radius: 14px;
-}
 
-
-
-.container {
-    background: #dadada;
-}
-
- */
- div.custom-button {
+div.custom-button {
     height: 63px;
 }
+
+.row {
+    background: rgb(230, 230, 230);
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 20rem !important;
+}
+
 .row h2 {
     text-align: center;
+}
+
+@media only screen and (min-width:560px) {
+
+    .row {
+        width: 75%;
+        margin-top: 20rem !important;
+    }
+}
+
+@media only screen and (min-width:1140px) {
+
+    .row {
+        width: 60%;
+        height: 30rem;
+    }
 }

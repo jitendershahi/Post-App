@@ -1,4 +1,4 @@
-.card {
+/* .card {
     border: 1px solid black;
     margin: 30px;
     width: 25em;
@@ -12,7 +12,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-}
+} */
 
 .card > h1 {
     font-size: 20px;
@@ -31,8 +31,8 @@ a:focus, a:hover {
 
 div.card-icon > i.fa-trash {
     position: absolute;
-    top: 40px;
-    left: 25em;
+    top: 1rem;
+    right: 2rem;
     z-index: 9999999;
     cursor: pointer;
     color: #338dcd;
@@ -40,8 +40,8 @@ div.card-icon > i.fa-trash {
 
 div.card-icon > i.fa-edit {
     position: absolute;
-    top: 40px;
-    left: 23em;
+    top: 1rem;
+    right: 5rem;
     z-index: 9999999;
     cursor: pointer;
     color: #338dcd;

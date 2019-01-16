@@ -34,7 +34,7 @@ import { withRouter } from 'react-router-dom'
                     <li><Link to="/add-post">Add Post</Link></li>
                     <li><Link to="/users">Users</Link></li>
                     <li><Link to="/to-dos">ToDo's</Link></li>
-                    <li style={{float:'right',marginRight:'35px'}}><button className="btns" onClick={this.logoutClick}>Logout</button></li>
+                    <li onClick={this.logoutClick}>Logout</li>
                 </ul>
             )
         }

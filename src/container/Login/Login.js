@@ -61,15 +61,15 @@ class Login extends Component {
             )
         }
 
-        let style = {
-            margin:'110px auto',
-            background:'#e6e6e6',
-            width:'50%'
-        }
+        // let style = {
+        //     margin:'110px auto',
+        //     background:'#e6e6e6',
+        //     width:'50%'
+        // }
 
         return (
             <div className="container">
-                <div className="row" style={style}>
+                <div className="row">
                 <h2>Post App {(this.state.isSignup) ? "SignUp" : "Login"} </h2>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         {redirect}
