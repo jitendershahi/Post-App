@@ -10,6 +10,7 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 import Navbar  from '../../component/navbar/navbar';
 // import Logout from '../logout/Logout';
 // import {connect} from 'react-redux';
+import ErrorBoundary from './../ErrorBoundaries/ErrorBoundary '
 const Login = lazy(() => import('../Login/Login'));
 const Posts = lazy(() => import('../posts/Posts'));
 const comments = lazy(() => import('../comments/comments'));
@@ -27,12 +28,14 @@ class Routes extends Component {
     render() {
         let token = localStorage.getItem('token')
         let approutes = (
+            <ErrorBoundary>
                 <Suspense fallback={<div style={{textAlign:'center'}}>Loading...</div>}>
                     <Switch>
                         <Route exact path="/" component={Login} />
                         <Redirect to="/"/>
                     </Switch>
                 </Suspense>
+            </ErrorBoundary>
         )
         if(token) {
             approutes = (
