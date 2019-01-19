@@ -31,10 +31,10 @@ import { withRouter } from 'react-router-dom'
             nav = (
                 <ul className="header">
                     <li><Link to="/posts">Posts</Link></li>
-                    <li><Link to="/add-post">Add Post</Link></li>
+                    <li><Link to="/add-post">Add <span className="hide">Post</span></Link></li>
                     <li><Link to="/users">Users</Link></li>
                     <li><Link to="/to-dos">ToDo's</Link></li>
-                    <li><Link to="/practise">Practise 1</Link></li>
+                    <li><Link to="/practise">form</Link></li>
                     <li onClick={this.logoutClick}>Logout</li>
                 </ul>
             )

@@ -54,8 +54,8 @@ class Login extends Component {
                     <input type="password" name="password" onChange={(event) => this.handleValue(event)} value={this.state.loginForm.password} className="form-control" placeholder="Password" />
                 </div>
                 <div className="custom-button">
-                    <button type="submit" onClick={(event) => this.submitLogin(event)} className="btn btn-primary">Submit</button>
-                    <button type="button" onClick={this.changeMode} className="btn btn-danger">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
+                    <button type="submit" onClick={(event) => this.submitLogin(event)} className="buton">Submit</button>
+                    <button type="button" onClick={this.changeMode} className="buton">Switch To {(this.state.isSignup) ? "SignIn" : "SignUp"}</button>
                 </div>
             </form>
             )

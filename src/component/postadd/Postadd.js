@@ -5,6 +5,7 @@ import { bindActionCreators } from '../../../node_modules/redux';
 import * as actionCreator from './../../store/actionscreators/actionCreators';
 import toastr from 'toastr'
 import { withRouter } from 'react-router-dom';
+import './Postadd.css'
 
 
 class Postadd extends Component {
@@ -81,8 +82,8 @@ componentDidMount(){
     return (
       <div>
       <h1 style={{textAlign:'center'}}>{(this.state.isEdit) ? 'Edit Post' : 'Add Post'}</h1>
-      <div className="container">
-        <div className="row" style={style}>
+      <div className="add-container">
+        <div className="add-row" style={style}>
               <form onSubmit={(event) => this.handleSubmit(event)}>
                     <div className="form-group">
                       <label>Title</label>
