@@ -19,7 +19,7 @@ class Todos extends Component {
     render() {
         return (
             <div>
-                <table width="80%">
+                <table width="100%">
                     <thead>
                         <tr style={{height:"4em"}}>
                             <th>Title</th>

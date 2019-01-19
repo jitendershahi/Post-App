@@ -31,6 +31,13 @@ export const editPost = (post) => {
     }
 }
 
+export const deletePost = (id) => {
+    return {
+        type: actionTypes.DELETE_POST,
+        data: id
+    }
+}
+
 export const getUsers = (users) => {
     return {
         type: actionTypes.GET_USERS,

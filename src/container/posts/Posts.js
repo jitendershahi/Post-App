@@ -23,12 +23,14 @@ class Posts extends Component {
     }
 
     deletePost = (id) => {
-        axios.delete("http://jsonplaceholder.typicode.com/posts/" + id)
-         .then((res) => {
-            toastr.success("Post Deleted!!")
-         }).catch((err) => {
-             toastr.error("Post deleted fail!!")
-         })
+        this.props.deletePost(id)
+        toastr.success("Post Deleted!!")
+        // axios.delete("http://jsonplaceholder.typicode.com/posts/" + id)
+        //  .then((res) => {
+        //     toastr.success("Post Deleted!!")
+        //  }).catch((err) => {
+        //      toastr.error("Post deleted fail!!")
+        //  })
     }
 
     editPost = (id) => {
@@ -60,7 +62,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        getPosts:(data) => dispatch(actionCreators.loadPosts(data))
+        getPosts:(data) => dispatch(actionCreators.loadPosts(data)),
+        deletePost:(id) => dispatch(actionCreators.deletePost(id))
     },dispatch)
 }
 
