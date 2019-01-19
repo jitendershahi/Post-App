@@ -150,7 +150,7 @@ class PractiseForm extends Component {
         </div>
         </form>
     )
-  }
+}
 }
 
 PractiseForm = reduxForm({
