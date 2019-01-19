@@ -14,6 +14,7 @@ import { reducer as formReducer } from 'redux-form';
 import { userReducer } from './store/reducers/userReducer';
 import { todosReducer } from './store/reducers/todoReducer';
 import { authReducer } from './store/reducers/authReducer';
+import { practiseReducer } from './store/reducers/practisereducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
     form:formReducer,
     users:userReducer,
     todos:todosReducer,
-    auth:authReducer
+    auth:authReducer,
+    practise:practiseReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

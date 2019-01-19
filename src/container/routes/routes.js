@@ -11,6 +11,8 @@ import Navbar  from '../../component/navbar/navbar';
 // import Logout from '../logout/Logout';
 // import {connect} from 'react-redux';
 import ErrorBoundary from './../ErrorBoundaries/ErrorBoundary '
+// import Practise from '../Practise/Practise';
+import practiseForm from '../../component/practiseForm/practiseForm';
 const Login = lazy(() => import('../Login/Login'));
 const Posts = lazy(() => import('../posts/Posts'));
 const comments = lazy(() => import('../comments/comments'));
@@ -47,6 +49,7 @@ class Routes extends Component {
                         <Route path="/users" component={Users} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/to-dos" component={Todos} />
+                        <Route path="/practise" component={practiseForm} />
                         <Route path="/edit-post/:id" component={Postadd} />
                         <Route exact path="/post/:id" component={comments} />
                         <Redirect to="/posts"/>

@@ -112,3 +112,10 @@ export const loginSubmit = (data, type) => {
             })
     }
 }
+
+export const editPractiseData = (data) => {
+    return {
+        type: actionTypes.PRACTISE,
+        data:data
+    }
+}
